@@ -1,0 +1,14 @@
+*.iml
+*.class
+target/
+.project
+.settings/
+.classpath
+.springBeans
+.idea/
+*Test.java
+/jvm.log
+*dependency-reduced-pom.xml
+*.log.*
+*.log
+1.jpg
