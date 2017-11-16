@@ -37,8 +37,8 @@ goudai:
 public class UserConsumer {
     
     @KafkaListener(topic = "xxx")
-    public void onUserRegisterCouponGranted(KafkaContext kafkaContext) {
-        System.out.println(JsonUtils.toJson(kafkaContext));
+    public void onUserRegisterCouponGranted(ConsumerRecord<String, String> consumerRecord) {
+        System.out.println(JsonUtils.toJson(consumerRecord));
     }
 }
 

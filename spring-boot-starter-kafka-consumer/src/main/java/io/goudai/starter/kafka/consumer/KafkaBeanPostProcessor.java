@@ -92,22 +92,7 @@ public class KafkaBeanPostProcessor implements BeanPostProcessor, DisposableBean
                                             final String value = consumerRecord.value();
                                             KafkaContext context = null;
                                             if (StringUtils.isNotBlank(value)) {
-                                                try {
-                                                    context = JsonUtils.fromJson(value, KafkaContext.class);
-                                                } catch (Exception e) {
-                                                    logger.error(e.getMessage(), e);
-                                                }
-                                            }
-                                            if (context != null) {
-                                                if (StringUtils.isNotBlank(context.getProjectId())) {
-                                                    if (StringUtils.isNotBlank(context.getRefId())) {
-                                                        final String token = context.getToken();
-                                                        if (StringUtils.isNotBlank(token)) {
-                                                            method.invoke(bean, context);
-
-                                                        }
-                                                    }
-                                                }
+                                                method.invoke(bean, consumerRecord);
                                             }
                                         }
                                         break;
