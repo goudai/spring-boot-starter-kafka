@@ -3,7 +3,6 @@ package io.goudai.starter.kafka.consumer;
 import io.goudai.starter.kafka.consumer.annotation.EnableKafka;
 import io.goudai.starter.kafka.consumer.annotation.KafkaListener;
 import io.goudai.starter.kafka.core.JsonUtils;
-import io.goudai.starter.kafka.core.KafkaContext;
 import io.goudai.starter.kafka.core.StringUtils;
 import lombok.Setter;
 import lombok.val;
@@ -89,8 +88,11 @@ public class KafkaBeanPostProcessor implements BeanPostProcessor, DisposableBean
                                 for (int i = 0; i < retry; i++) {
                                     try {
                                         if (topic.equals(consumerRecord.topic())) {
+                                            if("test01".equals(consumerRecord.topic())){
+                                                logger.info("test01 : "+consumerRecord.value());
+                                                break;
+                                            }
                                             final String value = consumerRecord.value();
-                                            KafkaContext context = null;
                                             if (StringUtils.isNotBlank(value)) {
                                                 method.invoke(bean, consumerRecord);
                                             }

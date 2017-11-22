@@ -33,7 +33,7 @@
 
         <snapshotRepository>
             <id>my-nexus-snapshot</id>
-            <url>http://nexus.xxxx.com/content/repositories/snapshots/</url>
+            <url>http://nexus.xxx.com/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 

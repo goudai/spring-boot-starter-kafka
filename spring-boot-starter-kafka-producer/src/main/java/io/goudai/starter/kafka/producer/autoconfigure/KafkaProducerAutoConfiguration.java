@@ -1,6 +1,7 @@
 package io.goudai.starter.kafka.producer.autoconfigure;
 
 import io.goudai.starter.kafka.core.JsonUtils;
+import io.goudai.starter.kafka.core.StringUtils;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -26,12 +27,16 @@ public class KafkaProducerAutoConfiguration {
         Properties properties = new Properties();
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, producerProperties.bootstrapServers);
         properties.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, String.valueOf(producerProperties.enableIdempotence));
-        properties.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, producerProperties.transactionalId);
+        if (StringUtils.isNotBlank(producerProperties.transactionalId)) {
+            properties.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, producerProperties.transactionalId);
+        }
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, producerProperties.keySerializer);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, producerProperties.valueSerializer);
+        if(!producerProperties.enableIdempotence){
+            properties.put(ProducerConfig.ACKS_CONFIG, producerProperties.acks);
+        }
         log.info("initing stringStringKafkaProducer using properties : {}", JsonUtils.toJson(properties));
         KafkaProducer<String, String> stringStringKafkaProducer = new KafkaProducer<>(properties);
-        stringStringKafkaProducer.initTransactions();
         log.info("init stringStringKafkaProducer successfully {} using properties : {}", stringStringKafkaProducer, JsonUtils.toJson(properties));
         return stringStringKafkaProducer;
     }
@@ -46,7 +51,9 @@ public class KafkaProducerAutoConfiguration {
 
         private boolean enableIdempotence = false;
 
-        private String transactionalId;
+        private String transactionalId = "";
+
+        private String acks = "1";
 
         private String keySerializer = "org.apache.kafka.common.serialization.StringSerializer";
 
