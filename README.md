@@ -2,6 +2,12 @@
 ## dependency
 * kafka client 1.0.0
 
+## Update
+
+* V1.0.1 
+1.支持故障重启，默认启用故障重启，重启间隔为20s秒默认
+2.支持idea自动补全
+    
 ## consumer
 
 * add dependency to maven
@@ -10,12 +16,12 @@
 <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-consumer</artifactId>
-     <version>1.0.0</version>
+     <version>1.0.1</version>
  </dependency>
  <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-core</artifactId>
-     <version>1.0.0</version>
+     <version>1.0.1</version>
  </dependency>
  ```
  
@@ -27,7 +33,9 @@ goudai:
   kafka:
     consumer:
       bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
-      
+      auto-restart:
+        enabled: false # 默认为true 设置为false 表示关闭故障重启
+        interval: 20   # 默认间隔20s
 ``` 
 ```java
 /**
@@ -53,12 +61,12 @@ public class UserConsumer {
  <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-core</artifactId>
-     <version>1.0.0</version>
+     <version>1.0.1</version>
  </dependency>
  <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-producer</artifactId>
-     <version>1.0.0</version>
+     <version>1.0.1</version>
  </dependency>
  ```
  

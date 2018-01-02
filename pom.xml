@@ -12,7 +12,7 @@
     <groupId>io.goudai</groupId>
     <artifactId>spring-boot-starter-kafka</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <modules>
         <module>spring-boot-starter-kafka-core</module>
@@ -28,7 +28,7 @@
     <distributionManagement>
         <repository>
             <id>my-nexus-releases</id>
-            <url>http://nexus.xxxx.com/content/repositories/releases/</url>
+            <url>http://nexus.xxx.com/content/repositories/releases/</url>
         </repository>
 
         <snapshotRepository>
@@ -51,5 +51,24 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

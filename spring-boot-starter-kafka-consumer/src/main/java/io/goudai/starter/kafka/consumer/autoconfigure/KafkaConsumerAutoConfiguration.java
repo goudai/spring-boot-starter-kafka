@@ -10,6 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.util.Properties;
 
@@ -28,8 +29,8 @@ public class KafkaConsumerAutoConfiguration {
         properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, kafkaConsumerProperties.keyDeserializer);
         properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, kafkaConsumerProperties.valueDeserializer);
         log.info("initing KafkaBeanPostProcessor using properties : {}", JsonUtils.toJson(properties));
-        KafkaBeanPostProcessor kafkaBeanPostProcessor = new KafkaBeanPostProcessor(properties, kafkaConsumerProperties.retry);
-        log.info("init KafkaBeanPostProcessor successfully {} using properties : {}", kafkaBeanPostProcessor, JsonUtils.toJson(properties));
+        KafkaBeanPostProcessor kafkaBeanPostProcessor = new KafkaBeanPostProcessor(properties, kafkaConsumerProperties.autoRestart);
+        log.info("inited KafkaBeanPostProcessor successfully {} using properties : {}", kafkaBeanPostProcessor, JsonUtils.toJson(properties));
         return kafkaBeanPostProcessor;
     }
 
@@ -49,7 +50,14 @@ public class KafkaConsumerAutoConfiguration {
 
         private String valueDeserializer = "org.apache.kafka.common.serialization.StringDeserializer";
 
-        private int retry = 1;
+        private AutoRestart autoRestart = new AutoRestart();
+
+        @Setter
+        @Getter
+        public static class AutoRestart {
+            private boolean enabled = true;
+            private int interval = 20;
+        }
 
     }
 
