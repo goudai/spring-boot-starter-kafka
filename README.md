@@ -1,6 +1,10 @@
-# Usage
-## dependency
+# dependency
 * kafka client 1.0.0
+* spring boot
+
+# Usage
+## Download 
+wget https://github.com/goudai/spring-boot-starter-kafka/archive/spring-boot-starter-kafka-1.0.1.zip
 
 ## Update
 
@@ -16,12 +20,12 @@
 <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-consumer</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
  </dependency>
  <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-core</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
  </dependency>
  ```
  
@@ -61,12 +65,12 @@ public class UserConsumer {
  <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-core</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
  </dependency>
  <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-producer</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
  </dependency>
  ```
  
