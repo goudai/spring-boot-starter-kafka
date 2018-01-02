@@ -16,12 +16,12 @@
 <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-consumer</artifactId>
-     <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
  </dependency>
  <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-core</artifactId>
-     <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
  </dependency>
  ```
  
@@ -61,12 +61,12 @@ public class UserConsumer {
  <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-core</artifactId>
-     <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
  </dependency>
  <dependency>
      <groupId>io.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-producer</artifactId>
-     <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
  </dependency>
  ```
  
