@@ -95,9 +95,9 @@ public class UserProducer {
     Producer<String, String> producer;
 
     public void sendMsg()  {
-        producer.beginTransaction();
+       
         producer.send(new ProducerRecord<String, String>("topic","kafkaContext json"));
-        producer.commitTransaction();
+     
 
     }
 }
