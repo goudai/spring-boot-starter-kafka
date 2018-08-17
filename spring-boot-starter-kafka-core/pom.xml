@@ -2,7 +2,7 @@
     <parent>
         <groupId>io.github.goudai</groupId>
         <artifactId>spring-boot-starter-kafka</artifactId>
-       <version>1.0.3-SNAPSHOT</version>
+       <version>1.0.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
