@@ -18,12 +18,12 @@ wget https://github.com/goudai/spring-boot-starter-kafka/archive/spring-boot-sta
  
  ```xml
 <dependency>
-     <groupId>io.goudai</groupId>
+     <groupId>io.github.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-consumer</artifactId>
     <version>1.0.1</version>
  </dependency>
  <dependency>
-     <groupId>io.goudai</groupId>
+     <groupId>io.github.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-core</artifactId>
     <version>1.0.1</version>
  </dependency>
@@ -63,12 +63,12 @@ public class UserConsumer {
  
  ```xml
  <dependency>
-     <groupId>io.goudai</groupId>
+     <groupId>io.github.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-core</artifactId>
     <version>1.0.1</version>
  </dependency>
  <dependency>
-     <groupId>io.goudai</groupId>
+     <groupId>io.github.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-producer</artifactId>
     <version>1.0.1</version>
  </dependency>

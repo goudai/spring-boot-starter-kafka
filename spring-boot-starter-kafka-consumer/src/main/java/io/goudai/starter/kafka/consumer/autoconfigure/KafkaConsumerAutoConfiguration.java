@@ -58,7 +58,6 @@ public class KafkaConsumerAutoConfiguration {
             private boolean enabled = true;
             private int interval = 20;
         }
-
     }
 
 }
