@@ -11,7 +11,7 @@
     <groupId>io.github.goudai</groupId>
     <artifactId>spring-boot-starter-kafka</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
 
 
     <developers>
@@ -58,7 +58,7 @@
         <connection>scm:git:https://github.com/goudai/spring-boot-starter-kafka.git</connection>
         <developerConnection>scm:git:https://github.com/goudai/spring-boot-starter-kafka.git</developerConnection>
         <url>scm:git:https://github.com/goudai/spring-boot-starter-kafka.git</url>
-        <tag>spring-boot-starter-kafka-1.0.1</tag>
+        <tag>spring-boot-starter-kafka-1.0.3</tag>
     </scm>
 
     <dependencyManagement>
