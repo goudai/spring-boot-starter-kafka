@@ -17,7 +17,10 @@ import javax.annotation.PostConstruct;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.*;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -99,7 +102,7 @@ public class KafkaBeanPostProcessor implements BeanPostProcessor, DisposableBean
     public void start() {
         ThreadKit.cachedThreadPool.execute(() -> {
             Thread thread = Thread.currentThread();
-            thread.setName("QUEUE Consumer Thread " + POOL_SEQ.getAndIncrement());
+            thread.setName("QUEUE-Consumer-Thread " + POOL_SEQ.getAndIncrement());
             while (this.autoRestart.isEnabled()) {
                 try {
                     ConsumeMetadata take = queue.take();
@@ -107,10 +110,12 @@ public class KafkaBeanPostProcessor implements BeanPostProcessor, DisposableBean
                     startConsumer(take);
                     AtomicInteger atomicInteger = consumerRestartedCount.get(key);
                     if (atomicInteger == null) {
-                        consumerRestartedCount.put(key, atomicInteger = new AtomicInteger(1));
+                        consumerRestartedCount.put(key, new AtomicInteger(0));
+                        logger.info("starting consumer group {}, topic {},metadata {} successfully ", take.getGroup(), take.getTopic(), take);
+                    } else {
+                        logger.error("The {} restart of the consumer {}-{} succeeded", atomicInteger.get(), key);
                     }
-                    logger.error("consumer " + key + "进行了第" + atomicInteger.get() + "次故障");
-                    logger.info("启动 consumer group {}, topic {},metadata {} 成功 ", take.getGroup(), take.getTopic(), take);
+
                 } catch (InterruptedException e) {
                     thread.interrupt();
                 }
