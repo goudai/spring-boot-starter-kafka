@@ -6,8 +6,8 @@ package io.github.goudai.kafka.transaction.producer;
  */
 public interface TransactionProducer {
 
-    
-    void send(String topic,Event event);
+
+    void send(String topic, Object object);
 
 }
 
