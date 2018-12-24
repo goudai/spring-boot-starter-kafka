@@ -75,13 +75,6 @@ public class KafkaConsumerAutoConfiguration {
             private Smtp smtp = new Smtp();
             private int emailQueueSize = 100;
 
-            /*
-                             .host("smtp.mxhichina.com")
-                   .port(465)
-                   .ssl(true)
-                   .auth("ex@binggejia.com", "jRZ99jwRMQT0J5sAzytONugV5mhBFl1")
-                   .debugMode(false)
-             */
             @Setter
             @Getter
             public static class Smtp {
