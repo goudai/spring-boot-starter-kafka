@@ -8,14 +8,14 @@ import java.util.Date;
 public class TransactionProducerImpl implements TransactionProducer {
 
     @Autowired
-    private GoudaiEventMapper goudaiEventMapper;
+    private KafkaEventDatasource goudaiEventMapper;
 
     @Autowired
     private IdGenerator idGenerator;
 
     @Override
     public void send(String topic, Object payload) {
-        GoudaiEvent event = new GoudaiEvent();
+        KafkaEvent event = new KafkaEvent();
         event.setTopic(topic);
         event.setPayload(JsonUtils.toJson(payload));
         event.setProjectId("1");

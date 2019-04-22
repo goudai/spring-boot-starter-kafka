@@ -25,7 +25,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.time.Duration;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.*;
@@ -208,7 +207,7 @@ public class KafkaBeanPostProcessor implements BeanPostProcessor, DisposableBean
             Thread.currentThread().setName(group + "-" + topic + "-" + POOL_SEQ.getAndIncrement());
             boolean isException = false;
             while (consumerRunningCache.get(key).get()) {
-                ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofSeconds(30));
+                ConsumerRecords<String, String> consumerRecords = consumer.poll(timeout);
                 isException = false;
                 try {
                     handleRecord(topic, method, bean, consumer, consumerRecords);

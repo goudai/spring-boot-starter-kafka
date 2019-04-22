@@ -15,7 +15,7 @@ import static io.gd.generator.api.query.Predicate.EQ;
 
 /**
  * @author qingmu.io
- * @date 2018/11/19
+ *  2018/11/19
  */
 @Entity
 @Getter
@@ -24,7 +24,7 @@ import static io.gd.generator.api.query.Predicate.EQ;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class GoudaiEvent {
+public class KafkaEvent {
 
     @Id
     @Field(label = "id")
