@@ -30,9 +30,6 @@
         </license>
     </licenses>
 
-
-
-
     <modules>
         <module>spring-boot-starter-kafka-core</module>
         <module>spring-boot-starter-kafka-consumer</module>
