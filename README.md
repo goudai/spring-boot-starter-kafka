@@ -1,7 +1,7 @@
 # dependency
-* kafka client 1.0.0
+* kafka client 2.2.0
 * spring boot
-
+* goudai runner
 # Usage
 
 ## Update
@@ -11,6 +11,10 @@
 </br> 2.支持idea自动补全
 * V1.0.2 
 </br> 修改groupId 发布到中央仓库
+* v2.2.1
+</br> 支持最新版kafka-clients(2.2.0)
+</br> 支持业务事物的异步消息
+
     
 ## consumer
 
@@ -20,12 +24,7 @@
 <dependency>
      <groupId>io.github.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-consumer</artifactId>
-    <version>1.0.2</version>
- </dependency>
- <dependency>
-     <groupId>io.github.goudai</groupId>
-     <artifactId>spring-boot-starter-kafka-core</artifactId>
-    <version>1.0.2</version>
+    <version>2.2.1</version>
  </dependency>
  ```
  
@@ -64,13 +63,8 @@ public class UserConsumer {
  ```xml
  <dependency>
      <groupId>io.github.goudai</groupId>
-     <artifactId>spring-boot-starter-kafka-core</artifactId>
-    <version>1.0.2</version>
- </dependency>
- <dependency>
-     <groupId>io.github.goudai</groupId>
      <artifactId>spring-boot-starter-kafka-producer</artifactId>
-    <version>1.0.2</version>
+    <version>2.2.1</version>
  </dependency>
  ```
  
