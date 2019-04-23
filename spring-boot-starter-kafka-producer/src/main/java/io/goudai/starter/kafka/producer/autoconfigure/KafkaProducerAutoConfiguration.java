@@ -51,7 +51,7 @@ public class KafkaProducerAutoConfiguration {
 
         private String transactionalId = "";
 
-        private String acks = "1";
+        private String acks = "-1";
 
         private String keySerializer = "org.apache.kafka.common.serialization.StringSerializer";
 
