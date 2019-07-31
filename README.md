@@ -13,8 +13,6 @@
 </br> 修改groupId 发布到中央仓库
 * v2.2.1
 </br> 支持最新版kafka-clients(2.2.0)
-</br> 支持业务事物的异步消息
-
     
 ## consumer
 
