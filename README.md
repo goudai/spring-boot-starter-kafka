@@ -74,8 +74,6 @@ goudai:
   kafka:
     producer:
       bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
-      enable-idempotence: true  #当设置事物id时必须设置为true
-      transactionalId: ${spring.application.name}-transactional-id # 是否开启事物支持
       
 ``` 
 ```java
